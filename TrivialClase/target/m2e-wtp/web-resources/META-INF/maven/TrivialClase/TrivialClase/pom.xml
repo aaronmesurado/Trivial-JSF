@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>TrivialClase</groupId>
+  <artifactId>TrivialClase</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>TrivialClase Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+  	<!-- Dependencia para que se puedan encriptar las contraseñas -->
+  	<dependency>
+	   <groupId>commons-codec</groupId>
+	   <artifactId>commons-codec</artifactId>
+	   <version>1.12</version>
+	</dependency>
+    <dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+			<version>8.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.faces/javax.faces-api -->
+		<dependency>
+			<groupId>javax.faces</groupId>
+			<artifactId>javax.faces-api</artifactId>
+			<version>2.3</version>
+			<scope>provided</scope>
+		</dependency>
+  </dependencies>
+  <build>
+ 		<sourceDirectory>/home/aaron/Escritorio/Proyectos/TrivialClase/src</sourceDirectory>
+		<outputDirectory>/home/aaron/Escritorio/Proyectos/TrivialClase/target/classes</outputDirectory>
+		<testOutputDirectory>/home/aaron/Escritorio/Proyectos/TrivialClase/target/test-classes</testOutputDirectory>
+		<resources>
+			<resource>
+				<directory>/home/aaron/Escritorio/Proyectos/TrivialClase/src</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+    <finalName>TrivialClase</finalName>
+  </build>
+</project>
