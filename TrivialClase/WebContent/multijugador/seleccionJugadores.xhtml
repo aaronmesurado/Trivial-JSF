@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Seleccionar Jugadores</title>
+	<!-- Link para Fuente -->
+	<link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet" />
+	<!-- Link para Iconos -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<!-- Link a Bootstrap -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous" />
+	<!-- Link a archivo CSS -->	
+	<h:outputStylesheet library="css" name="selecJugadores.css"/>
+	<!-- Icono Pagina -->
+	<link rel="shortcut icon" href="#{resource['images/icono.png']}" />
+</h:head>
+<h:body>
+	<h1 style="text-align: center">Seleccionar Jugadores</h1>
+	<div style="text-align: center">
+		<small>Jugador 1 y Jugador 2 deben tener valor</small>
+	</div>
+	<h:form>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-12">
+					<i class="fa fa-gamepad mr-2"></i>
+					<h:outputLabel>Jugador 1</h:outputLabel>
+					<h:inputText styleClass="form-control" name="jug1" id="jug1"
+						required="true" value="#{controladorSelecJugadores.j1}" />
+				</div>
+				<div class="col-sm-6 col-12">
+					<i class="fa fa-gamepad mr-2"></i>
+					<h:outputLabel>Jugador 2</h:outputLabel>
+					<h:inputText styleClass="form-control" name="jug2" id="jug2"
+						required="true" value="#{controladorSelecJugadores.j2}" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6 col-12">
+					<i class="fa fa-gamepad mr-2"></i>
+					<h:outputLabel>Jugador 3</h:outputLabel>
+					<h:inputText styleClass="form-control" name="jug3" id="jug3"
+						value="#{controladorSelecJugadores.j3}" />
+				</div>
+				<div class="col-sm-6 col-12">
+					<i class="fa fa-gamepad mr-2"></i>
+					<h:outputLabel>Jugador 4</h:outputLabel>
+					<h:inputText styleClass="form-control" name="jug4" id="jug4"
+						value="#{controladorSelecJugadores.j4}" />
+				</div>
+			</div>
+		</div>
+		<div class="container mt-3" align="center">
+			<h:commandButton styleClass="btn btn-success enlace" name="jugar"
+				value="Jugar" action="#{controladorSelecJugadores.jugar}"/>
+			<h:outputLink styleClass="btn btn-info enlace" value="../index.daw">
+				<i class="fa fa-home mr-2"></i>
+				<h:outputText value="Volver a Inicio" />
+			</h:outputLink>
+		</div>
+	</h:form>
+</h:body>
+</html>

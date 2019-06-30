@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Modificar</title>
+	<!-- Link para Fuente -->
+	<link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet" />
+	<!-- Link a Bootstrap -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous" />
+	<!-- Link a archivo CSS -->	
+	<h:outputStylesheet library="css" name="modificarPregunta.css"/>
+	<!-- Icono Pagina -->
+	<link rel="shortcut icon" href="#{resource['images/icono.png']}" />
+</h:head>
+<h:body>
+	<div class="container">
+		<h3 align="center" >Modificar Pregunta</h3>
+	</div>
+	
+	<div class="divMSG">
+		<h:messages errorStyle="color: red; font-weight: bold; margin-top: 10px"
+			globalOnly="true" styleClass="msg"/>
+	</div>
+	
+	<div class="container mt-3">
+		<h:form method="post">
+			<fieldset>
+				<h:outputLabel value="Pregunta" />
+				<h:inputText styleClass="form-control" name="pregunta" id="pregunta"
+					value="#{controladorModificar.pregunta.pregunta}" />
+				<h:outputLabel value="Correcta" />
+				<h:inputText styleClass="form-control" name="correcta" id="correcta"
+					value="#{controladorModificar.pregunta.correcta}" />
+				<h:outputLabel value="Categoría" />
+				<h:selectOneMenu styleClass="custom-select" value="#{controladorModificar.pregunta.categoria.idCategoria}">
+					<f:selectItems value="#{controladorModificar.listaCategorias}"
+						var="cat" itemValue="#{cat.idCategoria}" itemLabel="#{cat.categoria}" />
+				</h:selectOneMenu>
+			</fieldset>
+			<fieldset class="fieldDerecho">
+				<h:outputLabel value="Incorrecta 1" />
+				<h:inputText styleClass="form-control" name="incorrecta1" id="incorrecta1"
+					value="#{controladorModificar.pregunta.incorrecta1}" />
+				<h:outputLabel value="Incorrecta 2" />
+				<h:inputText styleClass="form-control" name="incorrecta2" id="incorrecta2"
+					value="#{controladorModificar.pregunta.incorrecta2}" />
+				<h:outputLabel value="Incorrecta 3" />
+				<h:inputText styleClass="form-control" name="incorrecta3" id="incorrecta3"
+					value="#{controladorModificar.pregunta.incorrecta3}" />
+				<h:outputLabel value="Incorrecta 4" />
+				<h:inputText styleClass="form-control" name="incorrecta4" id="incorrecta4"
+					value="#{controladorModificar.pregunta.incorrecta4}" />
+			</fieldset>
+			<br />
+			<h:commandButton styleClass="btn btn-success enlace" value="Enviar" action="#{controladorModificar.guardarCambios}" />
+			<h:commandButton styleClass="btn btn-danger ml-2 enlace" value="Borrar" action="#{controladorModificar.borrar}" />
+		</h:form>
+	</div>
+	<br />
+</h:body>
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Seleccionar Categoria</title>
+	<!-- Link para Fuente -->
+	<link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet" />
+	<!-- Link para Iconos -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<!-- Link a Bootstrap -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous" />
+	<!-- Link a archivo CSS -->	
+	<h:outputStylesheet library="css" name="selecCategoria.css"/>
+	<!-- Icono Pagina -->
+	<link rel="shortcut icon" href="#{resource['images/icono.png']}" />
+</h:head>
+<h:body>
+	<div class="container-justified contCabecera">
+		<div class="row cabecera">
+			<div class="col-sm-4 col-12">
+				<h3><i class="fa fa-user mr-2"></i><h:outputText value="#{controladorSelecCategoria.mostrarUsuarioLogeado()}" /></h3>
+			</div>
+			<div class="col-sm-4 col-12">
+				<h3><i class="fa fa-money mr-2"></i>
+					Acumulado: 
+					<h:outputText value="#{controladorSelecCategoria.puntosAcumulados()}" />
+				</h3>
+			</div>
+			<div class="col-sm-4 col-12">
+				<h:form>
+					<h:commandButton styleClass="btn btn-danger btn-block enlace btnCerrarSesion" name="logout"
+					value="Cerrar Sesion" action="#{controladorSelecCategoria.cerrarSesion}"/>
+				</h:form>
+			</div>
+		</div>
+	</div>
+	<h1 style="text-align: center">Seleccionar Categoria</h1>
+	
+	<h:messages globalOnly="true"/>
+	
+	<div class="container mt-3">
+		<h:form>
+			<ui:repeat value="#{controladorSelecCategoria.listaCategorias}" var="cat">
+				<h:commandButton styleClass="btn btn-light btn-block mt-2 enlace"
+					rendered="#{controladorSelecCategoria.activar(cat)}"
+					action="#{controladorSelecCategoria.catSeleccionada(cat.idCategoria)}"
+					name="categoria" value="#{cat.categoria}" />
+			</ui:repeat>
+			<h:commandButton styleClass="btn btn-light btn-block mt-2 enlace"
+				action="#{controladorSelecCategoria.multijugador}"
+				name="multijugador" value="Multijugador" />
+		</h:form>
+	</div>
+</h:body>
+</html>

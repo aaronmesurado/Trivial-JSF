@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Jugar</title>
+	<!-- Link para Fuente -->
+	<link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu" rel="stylesheet" /> 
+	<!-- Link para Iconos -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<!-- Link a Bootstrap -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous" />
+	<!-- Link a archivo CSS -->	
+	<h:outputStylesheet library="css" name="jugarSolitario.css"/>
+	<!-- Icono Pagina -->
+	<link rel="shortcut icon" href="#{resource['images/icono.png']}" />
+</h:head>
+<h:body>
+	<div class="container-justified contCabecera">
+		<div class="row cabecera">
+			<h6 class="col-sm-4 col-12"><i class="fa fa-user mr-2"></i><h:outputText value="#{controladorJugar.nombreUsuario}" /></h6>
+			<h6 class="col-sm-4 col-12"><i class="fa fa-money mr-2"></i><h:outputText value="#{controladorJugar.puntos}" /> pts.</h6>
+			<h6 class="col-sm-4 col-12"><i class="fa fa-heartbeat mr-2"></i><h:outputText value="#{controladorJugar.vidas}" /></h6>
+		</div>
+	</div>
+	
+	<h:messages globalOnly="true"/>
+	
+	<div class="container contPregunta">
+		<br />
+		<div class="row pregunta">
+			<h4><h:outputText value="#{controladorJugar.pregunta.pregunta}" /></h4>
+		</div>
+		
+		<div class="row respuestas">
+			<div class="container">
+				<ui:repeat var="resp" value="#{controladorJugar.respuestas}" varStatus="estado">
+					<div class="row">
+						<h:form style= "margin: 0 auto; width:250px;">
+							<h:commandButton styleClass="btn btn-outline-dark btn-block mt-2 enlace"
+								action="#{controladorJugar.seleccionaRespuesta(estado.index)}"
+								name="boton" value="#{resp}" />
+						</h:form>
+					</div>
+				</ui:repeat>
+			</div>
+		</div>
+		<br />
+	</div>
+	
+</h:body>
+</html>

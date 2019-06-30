@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- Link para Fuente -->
+	<link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet" /> 
+	<!-- Link para Iconos -> https://fontawesome.com/v4.7.0/icons/ -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<!-- Link a Bootstrap -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous" />
+	<!-- Link a archivo CSS -->	
+	<h:outputStylesheet library="css" name="index.css"/>
+	<!-- Icono Pagina -->
+	<link rel="shortcut icon" href="#{resource['images/icono.png']}" />
+	<title>Inicio</title>
+</h:head>
+<h:body>
+		<h1 style="text-align: center">Inicio</h1>
+		<div class="container">
+			<h:outputLink styleClass="btn btn-success btn-block enlace"
+				value="./login.daw">
+				<i class="fa fa-sign-in mr-2"></i>
+				<h:outputText value="Login" />
+			</h:outputLink>
+			<h:outputLink styleClass="btn btn-secondary btn-block enlace"
+				value="./tuPregunta.daw">
+				<i class="fa fa-upload mr-2"></i>
+				<h:outputText value="Deja tu Pregunta" />
+			</h:outputLink>
+			<h:outputLink styleClass="btn btn-info btn-block enlace"
+				value="./registro.daw">
+				<i class="fa fa-user-circle mr-2" />
+				<h:outputText value="Registro" />
+			</h:outputLink>
+			<h:outputLink styleClass="btn btn-dark btn-block enlace"
+				value="./multijugador/seleccionJugadores.daw">
+				<i class="fa fa-users mr-2"></i>
+				<h:outputText value="Multijugador" />
+			</h:outputLink>
+		</div>
+</h:body>
+</html>

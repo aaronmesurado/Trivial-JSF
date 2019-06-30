@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Multijugador</title>
+	<!-- Link para Fuente -->
+	<link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu" rel="stylesheet" /> 
+	<!-- Link para Iconos -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<!-- Link a Bootstrap -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous" />
+	<!-- Link a archivo CSS -->	
+	<h:outputStylesheet library="css" name="jugarMultijugador.css"/>
+	<!-- Icono Pagina -->
+	<link rel="shortcut icon" href="#{resource['images/icono.png']}" />
+</h:head>
+<h:body>
+	<div class="container mt-2">
+		<div class="row table-responsive-sm">
+			<h:dataTable value="#{controladorMultijugador.jugadores}" var="jug" class="table table-striped table-dark">
+		      <h:column>
+		         <f:facet name="header">
+		            <h:outputText value="" />
+		         </f:facet>
+		         <i class="fa fa-user-o mr-2" />
+		         <h:outputText value="#{jug.nombre}"></h:outputText>
+		      </h:column>
+		      <h:column>
+		         <f:facet name="header">
+		            <h:outputText value="Turno" />
+		         </f:facet>
+		         <h:form rendered="#{jug.isTurno()}">
+			   		<h:commandButton styleClass="btn btn-info" name="Tirar"
+						value="Tirar" action="#{controladorMultijugador.tirar}"/>
+			   </h:form>
+		      </h:column>
+		      <h:column>
+		         <f:facet name="header">
+		         	<i class="fa fa-flask mr-2" style="color: green;" />
+		            <h:outputText value="Ciencias" />
+		         </f:facet>
+		         <h:outputText style="color:green; font-weight: bolder" value="acertado" rendered="#{jug.isAcertado(1)}" />
+		      </h:column>
+		      <h:column>
+		         <f:facet name="header">
+		            <i class="fa fa-futbol-o mr-2" style="color: orange;" />
+		            <h:outputText value="Deportes" />
+		         </f:facet>
+		         <h:outputText style="font-weight: bolder; color:orange" value="acertado" rendered="#{jug.isAcertado(2)}" />
+		      </h:column>
+		      <h:column>
+		         <f:facet name="header">
+		         <i class="fa fa-film mr-2" style="color: pink;" />
+		            <h:outputText value="Espectáculo" />
+		         </f:facet>
+		         <h:outputText style="font-weight: bolder; color:pink" value="acertado" rendered="#{jug.isAcertado(3)}" />
+		      </h:column>
+		      <h:column>
+		         <f:facet name="header">
+		         <i class="fa fa-shield mr-2" style="color: yellow;" />
+		            <h:outputText value="Historia" />
+		         </f:facet>
+		         <h:outputText style="font-weight: bolder; color:yellow" value="acertado" rendered="#{jug.isAcertado(4)}" />
+		      </h:column>
+		      <h:column>
+		         <f:facet name="header">
+		         <i class="fa fa-globe mr-2" style="color: #2f81f7;" />
+		            <h:outputText value="Geografía" />
+		         </f:facet>
+		         <h:outputText style="font-weight: bolder; color:#2f81f7" value="acertado" rendered="#{jug.isAcertado(5)}" />
+		      </h:column>
+		      <h:column>
+		         <f:facet name="header">
+		         	<i class="fa fa-book mr-2" style="color: #996633;" />
+		            <h:outputText value="Literatura" />
+		         </f:facet>
+		         <h:outputText style="font-weight: bolder; color:#996633" value="acertado" rendered="#{jug.isAcertado(6)}" />
+		      </h:column>
+		   </h:dataTable>
+		</div>
+		
+		<div class="row mt-5">
+			<div id="imagen" class="col-md-5 col-sm-3 col-12">
+				<h:graphicImage width="250px" height="250px" rendered="#{controladorMultijugador.cargaImagen(1)}"
+					value="/TrivialClase/javax.faces.resource/images/ciencias.jpg.daw"/>
+				<h:graphicImage width="250px" height="250px" rendered="#{controladorMultijugador.cargaImagen(2)}"
+					value="/TrivialClase/javax.faces.resource/images/deportes.jpg.daw"/>
+				<h:graphicImage width="250px" height="250px" rendered="#{controladorMultijugador.cargaImagen(3)}"
+					value="/TrivialClase/javax.faces.resource/images/espectaculo.jpg.daw"/>
+				<h:graphicImage width="250px" height="250px" rendered="#{controladorMultijugador.cargaImagen(4)}"
+					value="/TrivialClase/javax.faces.resource/images/historia.jpg.daw"/>
+				<h:graphicImage width="250px" height="250px" rendered="#{controladorMultijugador.cargaImagen(5)}"
+					value="/TrivialClase/javax.faces.resource/images/geografia.png.daw"/>
+				<h:graphicImage width="250px" height="250px" rendered="#{controladorMultijugador.cargaImagen(6)}"
+					value="/TrivialClase/javax.faces.resource/images/literatura.png.daw"/>
+			</div>
+			<div class="col-md-7 col-sm-9 col-12">
+				<div class="container">
+					<div class="row pregunta">
+						<h4><h:outputText value="#{controladorMultijugador.pregunta.pregunta}" /></h4>
+					</div>
+					
+					<div class="row">
+						<div class="container respuestas">
+							<ui:repeat var="resp" value="#{controladorMultijugador.respuestas}" varStatus="estado">
+								<div class="row">
+									<h:form style= "margin: 0 auto; width:250px;">
+										<h:commandButton styleClass="btn btn-outline-dark btn-block mt-2"
+											action="#{controladorMultijugador.seleccionaRespuesta(estado.index)}"
+											name="boton" value="#{resp}" />
+									</h:form>
+								</div>
+							</ui:repeat>
+							<br />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+</h:body>
+</html>

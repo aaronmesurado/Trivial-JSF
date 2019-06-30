@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Gestión</title>
+	<!-- Link para Fuente -->
+	<link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu" rel="stylesheet" /> 
+	<!-- Link para Iconos -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<!-- Link a Bootstrap -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous" />
+	<!-- Link a archivo CSS -->	
+	<h:outputStylesheet library="css" name="gestionPreguntas.css"/>
+	<!-- Icono Pagina -->
+	<link rel="shortcut icon" href="#{resource['images/icono.png']}" />
+</h:head>
+<h:body>
+	<div class="container-justified contCabecera">
+		<div class="row cabecera">
+			<div class="col-sm-6 col-12">
+				<h3><i class="fa fa-user mr-2"></i><h:outputText value="#{controladorGestion.mostrarUsuarioLogeado()}" /></h3>
+			</div>
+			<div class="col-sm-3 col-12">
+				<h:outputLink styleClass="btn btn-success btn-block"
+					value="./anadirPregunta.daw">
+					<i class="fa fa-plus mr-2"></i>
+					<h:outputText value="Añadir" />
+			</h:outputLink>
+			</div>
+			<div class="col-sm-3 col-12">
+				<h:form>
+					<h:commandButton styleClass="btn btn-danger btn-block" name="logout"
+					value="Cerrar Sesion" action="#{controladorGestion.cerrarSesion}"/>
+				</h:form>
+			</div>
+		</div>
+	</div>
+	<h1 style="text-align: center">Lista de Preguntas</h1>
+	<div class="container-justified mt-4">
+		<h:dataTable value="#{controladorGestion.listaPreguntas}" var="preg" class="table table-striped table-dark table-responsive">
+		 	<h:column>
+		        <f:facet name="header">
+					<h:outputText value="Categoria" />
+		        </f:facet>
+	         	<h:outputText value="#{preg.categoria.categoria}"></h:outputText>
+	         </h:column>
+	         <h:column>
+		        <f:facet name="header">
+					<h:outputText value="Pregunta" />
+		        </f:facet>
+	         	<h:outputText value="#{preg.pregunta}"></h:outputText>
+	         </h:column>
+	         <h:column>
+		        <f:facet name="header">
+					<h:outputText value="Correcta" />
+		        </f:facet>
+	         	<h:outputText value="#{preg.correcta}"></h:outputText>
+	         </h:column>
+	         <h:column>
+		        <f:facet name="header">
+					<h:outputText value="Incorrecta" />
+		        </f:facet>
+	         	<h:outputText value="#{preg.incorrecta1}"></h:outputText>
+	         </h:column>
+	         <h:column>
+		        <f:facet name="header">
+					<h:outputText value="Incorrecta" />
+		        </f:facet>
+	         	<h:outputText value="#{preg.incorrecta2}"></h:outputText>
+	         </h:column>
+	         <h:column>
+		        <f:facet name="header">
+					<h:outputText value="Incorrecta" />
+		        </f:facet>
+	         	<h:outputText value="#{preg.incorrecta3}"></h:outputText>
+	         </h:column>
+	         <h:column>
+		        <f:facet name="header">
+					<h:outputText value="Incorrecta" />
+		        </f:facet>
+	         	<h:outputText value="#{preg.incorrecta4}"></h:outputText>
+	         </h:column>
+	         <h:column>
+		        <f:facet name="header">
+					<h:outputText value="Modificar" />
+		        </f:facet>
+		        <h:link value="..." outcome="modificar">
+		        	<i class="fa fa-pencil-square ml-2"></i>
+		        	<f:param name="id" value="#{preg.idPregunta}" />
+		        </h:link>
+	         </h:column>
+		</h:dataTable>
+	</div>
+</h:body>
+</html>

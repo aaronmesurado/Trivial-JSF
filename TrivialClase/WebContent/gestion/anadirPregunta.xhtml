@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Añadir Pregunta</title>
+	<!-- Link para Fuente -->
+	<link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet" />
+	<!-- Link para Iconos -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<!-- Link a Bootstrap -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous" />
+	<!-- Link a archivo CSS -->	
+	<h:outputStylesheet library="css" name="tuPregunta.css"/>
+	<!-- Icono Pagina -->
+	<link rel="shortcut icon" href="#{resource['images/icono.png']}" />
+</h:head>
+<h:body>
+	<h1 style="text-align: center">Añadir Pregunta</h1>
+	
+	<div class="divMSG">
+		<h:messages errorStyle="color: red; font-weight: bold; margin-top: 10px"
+			globalOnly="true" styleClass="msg"/>
+	</div>
+		
+	<div class="container">
+		<h:form method="post" id="formAnadirPregunta">
+		
+			<fieldset class="mt-2">
+				<legend>Pregunta, Respuesta y Categoría</legend>
+				<h:outputLabel value = "Pregunta" />
+				<h:inputText styleClass="form-control" required="true" id="tituloPregunta"
+					value="#{controladorPreguntaAdmin.pregunta.pregunta}"/>
+				<h:outputLabel value = "Respuesta" />
+				<h:inputText styleClass="form-control" required="true" id="respuestaCorrecta"
+					value="#{controladorPreguntaAdmin.pregunta.correcta}"/>
+				<h:outputLabel value = "Categoria" />
+				<h:selectOneMenu styleClass="custom-select" value="#{controladorPreguntaAdmin.categoria.idCategoria}">
+					<f:selectItem itemValue="0" itemLabel="Seleccionar Categoría" />
+					<f:selectItems value="#{controladorPreguntaAdmin.listaCategorias}"
+						var="cat" itemValue="#{cat.idCategoria}" itemLabel="#{cat.categoria}" />
+				</h:selectOneMenu>
+			</fieldset>
+			
+			<fieldset class="mt-2 fieldDerecho">
+				<legend class="legendDerecho">Respuestas Incorrectas</legend>
+				<small>Es necesario introducir todos los campos</small> <br />
+				<h:outputLabel value = "Respuesta Incorrecta 1" />
+				<h:inputText styleClass="form-control" required="true" id="respuestaIncorrecta1"
+					value="#{controladorPreguntaAdmin.pregunta.incorrecta1}"/>
+				<h:outputLabel value = "Respuesta Incorrecta 2" />
+				<h:inputText styleClass="form-control" required="true" id="respuestaIncorrecta2"
+					value="#{controladorPreguntaAdmin.pregunta.incorrecta2}"/>
+				<h:outputLabel value = "Respuesta Incorrecta 3" />
+				<h:inputText styleClass="form-control" required="true" id="respuestaIncorrecta3"
+					value="#{controladorPreguntaAdmin.pregunta.incorrecta3}"/>
+				<h:outputLabel value = "Respuesta Incorrecta 4" />
+				<h:inputText styleClass="form-control" required="true" id="respuestaIncorrecta4"
+					value="#{controladorPreguntaAdmin.pregunta.incorrecta4}"/>
+			</fieldset>
+			
+			<div class="botones mt-5">
+				<h:commandButton styleClass="btn btn-success enlace guardarPregunta"
+					action="#{controladorPreguntaAdmin.comprobar}" name="enviarPregunta" value="Enviar Pregunta" />
+				<h:outputLink styleClass="btn btn-info enlace" value="./preguntas.daw">
+					<i class="fa fa-list-alt mr-2"></i>
+					<h:outputText value="Volver" />
+				</h:outputLink>
+			</div>
+		</h:form>
+	</div>
+</h:body>
+</html>

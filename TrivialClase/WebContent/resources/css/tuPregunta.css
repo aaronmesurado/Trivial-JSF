@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+body{
+	background: url("images/config.jpg.daw") no-repeat;
+	background-size: cover;
+	overflow-y:hidden;
+	background-attachment: fixed;
+	font-family: 'Philosopher';
+    font-size: 1.1em;
+}
+
+h1{
+	margin-top: 30px;
+	font-size: 3em;
+}
+
+.divMSG{
+	margin: 0 auto;
+	width: 500px;
+}
+
+.msg{
+	list-style:none;
+}
+
+fieldset{
+	width: 48%;
+	float: left;
+}
+
+.fieldDerecho{
+	margin-left: 10px;
+}
+
+.legendDerecho{
+	margin-bottom: 0px;
+}
+
+.botones{
+	clear: both;
+}
+
+a{
+	margin-left: 10px;
+}
+
+.enlace{
+	font-size: 1.1em;
+}
+
+@media only screen and (max-width: 767px){
+	body{
+		overflow-y: scroll;
+	}
+	
+	fieldset{
+		width: 100%;
+		float: none;
+	}
+	
+	.fieldDerecho{
+		margin-left: none;
+	}
+	
+	.botones{
+		clear: none;
+		margin-bottom: 10px;
+	}
+}
+
+@media only screen and (max-width: 369px){
+	.guardarPregunta{
+		margin-bottom: 10px;
+	}
+}
+
+@media only screen and (max-width: 359px){
+	a{
+		margin-left: 0px;
+	}
+}
+
+@media (max-height: 500px){
+	body{
+		overflow-y: scroll;
+	}
+	
+	.divMSG{
+		width: 180px;
+	}
+	
+	fieldset{
+		width: 100%;
+		float: none;
+	}
+	
+	.fieldDerecho{
+		margin-left: 0px;
+	}
+}

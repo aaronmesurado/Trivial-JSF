@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+body{
+    background-image: linear-gradient(-90deg, rgba(86,165,205,1), rgba(112,203,87,0.71));
+    font-family: 'Philosopher';
+    font-size: 1.1em;
+}
+
+h1{
+	margin-top: 30px;
+	font-size: 3em;
+}
+
+.divMSG{
+	margin: 0 auto;
+	width: 500px;
+}
+
+.msg{
+	list-style:none;
+}
+
+form{
+	width: 500px;
+	margin: 0 auto;
+	box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.5);
+}
+
+.registro{
+	width: 90%;
+	margin: 0 auto;
+}
+
+a{
+	margin-left: 10px;
+}
+
+.enlace{
+	font-size: 1.1em;
+}
+
+
+@media only screen and (max-width: 530px){
+	form{
+		width: 100%;
+	}
+}

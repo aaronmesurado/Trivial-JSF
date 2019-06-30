@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+body{
+	background: url("images/party.jpg.daw") no-repeat;
+	background-size: cover;
+	overflow-y:hidden;
+	overflow-x:hidden;
+	background-attachment: fixed;
+	font-family: 'Philosopher';
+    font-size: 1.1em;
+}
+
+h2{
+	margin-top: 30px;
+	font-size: 3em;
+}
+
+.enlace{
+	font-size: 1.1em;
+}
+
+thead{
+	font-family: 'Baloo Tammudu';
+}
+
+@media only screen and (max-width: 370px){
+	h2{
+		text-align: center;
+	}
+	
+}
+
+@media (max-height: 500px){
+	body{
+		overflow-y: scroll;
+	}
+	
+	.divMSG{
+		width: 180px;
+	}
+	
+	fieldset{
+		width: 100%;
+		float: none;
+	}
+	
+	.fieldDerecho{
+		margin-left: 0px;
+	}
+}
